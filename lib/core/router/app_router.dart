@@ -6,6 +6,7 @@ import '../../features/login/bloc/auth_bloc.dart';
 import '../../features/login/pages/login_page.dart';
 import '../../features/profile/pages/profile_page.dart';
 import 'auth_guard.dart';
+import 'route_path.dart';
 import 'router_refresh_stream.dart';
 
 class AppRouter {
@@ -15,19 +16,21 @@ class AppRouter {
   late final GoRouter router = GoRouter(
     routes: [
       GoRoute(
-        path: '/login',
+        path: RoutePath.login,
         builder: (context, state) => const LoginPage(),
       ),
       // ShellRoute for persistent UI (Drawer)
       ShellRoute(
-        builder: (context, state, child) => MainShell(child: child),
+        builder: (context, state, child) {
+          return MainShell(child: child);
+        },
         routes: [
           GoRoute(
-            path: '/home',
+            path: RoutePath.main,
             builder: (context, state) => const HomePage(),
           ),
           GoRoute(
-            path: '/profile',
+            path: RoutePath.profile,
             builder: (context, state) => const ProfilePage(),
           ),
           // Add /about, /settings here...

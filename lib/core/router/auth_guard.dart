@@ -19,9 +19,9 @@ class AuthGuard {
       return isLoggingIn ? null : '/login';
     }
 
-    if (authState is AuthAuthenticated) {
+    if (authState is AuthAuthenticated && isLoggingIn) {
       // If authenticated, redirect away from login
-      return '/home';
+      return '/';
     }
 
     // AuthInitial/AuthLoading: Allow waiting on the current page

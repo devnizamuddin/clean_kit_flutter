@@ -17,6 +17,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     // Simulate checking for a stored token
     await Future<void>.delayed(const Duration(milliseconds: 500));
     // For this demo, we assume the user is initially unauthenticated
+    // emit(AuthAuthenticated('devnizam'));
     emit(AuthUnauthenticated());
   }
 

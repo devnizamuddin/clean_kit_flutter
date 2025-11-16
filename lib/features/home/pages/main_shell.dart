@@ -18,11 +18,17 @@ class MainShell extends StatelessWidget {
             // Navigation via context.go is declarative and simple
             ListTile(
               title: const Text('Home'),
-              onTap: () => context.go('/home'),
+              onTap: () {
+                Navigator.of(context).pop();
+                context.go('/');
+              },
             ),
             ListTile(
               title: const Text('Profile'),
-              onTap: () => context.go('/profile'),
+              onTap: () {
+                Navigator.of(context).pop(); // closes the drawer
+                context.go('/profile');
+              },
             ),
             // ... other menu items
           ],
